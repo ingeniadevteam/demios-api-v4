@@ -2,8 +2,8 @@
 
 module.exports = [
     {
-        "name":"manager",
-        "description":"Managers",
+        "name":"Authenticated",
+        "description":"Default role given to authenticated user.",
         "permissions":{
             "api::organization":{
                 "controllers":{
@@ -159,7 +159,7 @@ module.exports = [
                             "policy":""
                         },
                         "me":{
-                            "enabled":false,
+                            "enabled":true,
                             "policy":""
                         }
                     },
@@ -173,7 +173,204 @@ module.exports = [
                             "policy":""
                         },
                         "find":{
+                            "enabled":true,
+                            "policy":""
+                        },
+                        "updateRole":{
                             "enabled":false,
+                            "policy":""
+                        },
+                        "deleteRole":{
+                            "enabled":false,
+                            "policy":""
+                        }
+                    },
+                    "permissions":{
+                        "getPermissions":{
+                            "enabled":false,
+                            "policy":""
+                        }
+                    }
+                }
+            }
+        },
+        "users":[
+            
+        ]
+    },
+    {
+        "name":"manager",
+        "description":"Managers",
+        "permissions":{
+            "api::organization":{
+                "controllers":{
+                    "organization":{
+                        "find":{
+                            "enabled":true,
+                            "policy":""
+                        },
+                        "findOne":{
+                            "enabled":false,
+                            "policy":""
+                        },
+                        "create":{
+                            "enabled":true,
+                            "policy":""
+                        },
+                        "update":{
+                            "enabled":false,
+                            "policy":""
+                        },
+                        "delete":{
+                            "enabled":false,
+                            "policy":""
+                        }
+                    }
+                }
+            },
+            "plugin::content-type-builder":{
+                "controllers":{
+                    "components":{
+                        "getComponents":{
+                            "enabled":false,
+                            "policy":""
+                        },
+                        "getComponent":{
+                            "enabled":false,
+                            "policy":""
+                        }
+                    },
+                    "content-types":{
+                        "getContentTypes":{
+                            "enabled":false,
+                            "policy":""
+                        },
+                        "getContentType":{
+                            "enabled":false,
+                            "policy":""
+                        }
+                    }
+                }
+            },
+            "plugin::email":{
+                "controllers":{
+                    "email":{
+                        "send":{
+                            "enabled":false,
+                            "policy":""
+                        }
+                    }
+                }
+            },
+            "plugin::upload":{
+                "controllers":{
+                    "content-api":{
+                        "find":{
+                            "enabled":false,
+                            "policy":""
+                        },
+                        "findOne":{
+                            "enabled":false,
+                            "policy":""
+                        },
+                        "destroy":{
+                            "enabled":false,
+                            "policy":""
+                        },
+                        "upload":{
+                            "enabled":false,
+                            "policy":""
+                        }
+                    }
+                }
+            },
+            "plugin::i18n":{
+                "controllers":{
+                    "locales":{
+                        "listLocales":{
+                            "enabled":false,
+                            "policy":""
+                        }
+                    }
+                }
+            },
+            "plugin::users-permissions":{
+                "controllers":{
+                    "auth":{
+                        "callback":{
+                            "enabled":false,
+                            "policy":""
+                        },
+                        "changePassword":{
+                            "enabled":false,
+                            "policy":""
+                        },
+                        "resetPassword":{
+                            "enabled":false,
+                            "policy":""
+                        },
+                        "connect":{
+                            "enabled":false,
+                            "policy":""
+                        },
+                        "forgotPassword":{
+                            "enabled":false,
+                            "policy":""
+                        },
+                        "register":{
+                            "enabled":false,
+                            "policy":""
+                        },
+                        "emailConfirmation":{
+                            "enabled":false,
+                            "policy":""
+                        },
+                        "sendEmailConfirmation":{
+                            "enabled":false,
+                            "policy":""
+                        }
+                    },
+                    "user":{
+                        "create":{
+                            "enabled":false,
+                            "policy":""
+                        },
+                        "update":{
+                            "enabled":false,
+                            "policy":""
+                        },
+                        "find":{
+                            "enabled":false,
+                            "policy":""
+                        },
+                        "findOne":{
+                            "enabled":false,
+                            "policy":""
+                        },
+                        "count":{
+                            "enabled":false,
+                            "policy":""
+                        },
+                        "destroy":{
+                            "enabled":false,
+                            "policy":""
+                        },
+                        "me":{
+                            "enabled":true,
+                            "policy":""
+                        }
+                    },
+                    "role":{
+                        "createRole":{
+                            "enabled":false,
+                            "policy":""
+                        },
+                        "findOne":{
+                            "enabled":false,
+                            "policy":""
+                        },
+                        "find":{
+                            "enabled":true,
                             "policy":""
                         },
                         "updateRole":{
@@ -356,7 +553,7 @@ module.exports = [
                             "policy":""
                         },
                         "me":{
-                            "enabled":false,
+                            "enabled":true,
                             "policy":""
                         }
                     },
@@ -370,7 +567,7 @@ module.exports = [
                             "policy":""
                         },
                         "find":{
-                            "enabled":false,
+                            "enabled":true,
                             "policy":""
                         },
                         "updateRole":{
@@ -553,7 +750,7 @@ module.exports = [
                             "policy":""
                         },
                         "me":{
-                            "enabled":false,
+                            "enabled":true,
                             "policy":""
                         }
                     },
@@ -567,7 +764,7 @@ module.exports = [
                             "policy":""
                         },
                         "find":{
-                            "enabled":false,
+                            "enabled":true,
                             "policy":""
                         },
                         "updateRole":{
@@ -591,5 +788,5 @@ module.exports = [
         "users":[
             
         ]
-    }
+    },
 ];

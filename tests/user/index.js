@@ -31,7 +31,7 @@ it("should login user and return jwt token", async () => {
     });
 });
 
-it('should return users data for authenticated user', async () => {
+it('should return users data and role for authenticated user', async () => {
     /** Gets the default user role */
     const defaultRole = await strapi.query('plugin::users-permissions.role').findOne({}, []);
     
@@ -49,8 +49,8 @@ it('should return users data for authenticated user', async () => {
         id: user.id,
     });
     
-    await request(strapi.server.httpServer) // app server is an instance of Class: http.Server
-    .get('/api/users/me')
+    await request(strapi.server.httpServer)
+    .get('/api/users/me?populate=role')
     .set('accept', 'application/json')
     .set('Content-Type', 'application/json')
     .set('Authorization', 'Bearer ' + jwt)
@@ -61,5 +61,10 @@ it('should return users data for authenticated user', async () => {
         expect(data.body.id).toBe(user.id);
         expect(data.body.username).toBe(user.username);
         expect(data.body.email).toBe(user.email);
-    });
+
+        expect(data.body.role).toBeDefined();
+        expect(data.body.role.id).toBe(1);
+        expect(data.body.role.name).toBe('Authenticated');
+        expect(data.body.role.type).toBe('authenticated');
+    });    
 });

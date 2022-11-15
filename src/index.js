@@ -25,7 +25,7 @@ module.exports = {
         const createRole = await strapi.service('plugin::users-permissions.role').createRole;
         
         for (const confRole of confRoles) {
-            const appRole = appRoles.find(r => r.type === confRole.name);
+            const appRole = appRoles.find(r => r.name === confRole.name);
             if (!appRole) {
                 strapi.log.debug(`bootstrap: creating '${confRole.name}' role`);
                 await createRole(confRole);

@@ -13,6 +13,7 @@ it("strapi is defined", () => {
     expect(strapi).toBeDefined();
 });
 
-// require('./organizations');
 
 require('./user');
+require('./manager');
+require('./manager/organizations');
