@@ -16,10 +16,14 @@
     "supertest": "^6.3.1"
   },
   "dependencies": {
-    "@strapi/plugin-i18n": "4.5.0",
-    "@strapi/plugin-users-permissions": "4.5.0",
-    "@strapi/strapi": "4.5.0",
-    "better-sqlite3": "7.4.6"
+    "@strapi-community/strapi-provider-upload-google-cloud-storage": "^4.3.6",
+    "@strapi/plugin-i18n": "4.5.1",
+    "@strapi/plugin-users-permissions": "4.5.1",
+    "@strapi/provider-email-mailgun": "^4.5.1",
+    "@strapi/strapi": "4.5.1",
+    "better-sqlite3": "7.4.6",
+    "strapi-plugin-passwordless": "^4.0.8",
+    "strapi-provider-email-console": "file:./providers/strapi-provider-email-console"
   },
   "author": {
     "name": "A Strapi developer"
@@ -28,7 +32,7 @@
     "uuid": "1324b76f-f561-4118-af48-e0b2244e0135"
   },
   "engines": {
-    "node": ">=14.19.1 <=18.x.x",
+    "node": ">=16 <=18.x.x",
     "npm": ">=6.0.0"
   },
   "license": "MIT",

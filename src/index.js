@@ -19,6 +19,21 @@ module.exports = {
     * run jobs, or perform some special logic.
     */
     async bootstrap({ strapi }) {
+
+        // console.log(process.env.NODE_ENV);
+
+        // try {
+        //     strapi.plugins['email'].services.email.send({
+        //         to: 'test@strapi.com',
+        //         subject: 'The Strapi Email plugin worked successfully',
+        //         text: 'Hello world!',
+        //         html: 'Hello world!',
+        //     });
+        // } catch (error) {
+        //     console.log(error);
+        // }
+
+
         // setup roles
         const appRoles = await strapi.service('plugin::users-permissions.role').find();
         const updateRole = await strapi.service('plugin::users-permissions.role').updateRole;

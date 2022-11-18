@@ -15,5 +15,5 @@ it("strapi is defined", () => {
 
 
 require('./user');
-require('./manager');
-require('./manager/organizations');
+// require('./manager');
+// require('./manager/organizations');
