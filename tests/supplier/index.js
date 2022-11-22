@@ -2,8 +2,8 @@ const request = require('supertest');
 
 // user mock data
 const mockUserData = {
-    username: "Manager",
-    email: "manager@demios.es",
+    username: "Test Supplier",
+    email: "supplier@demios.es",
     provider: "local",
     password: "1234abc",
     confirmed: true,
@@ -11,10 +11,10 @@ const mockUserData = {
 };
 
 
-it('should create a user and give him manager role', async () => {
+it('should create a user and give him supplier role', async () => {
     /** Gets the default user role */
     const roles = await strapi.service('plugin::users-permissions.role').find({}, []);
-    const managerRole = roles.find(role => role.type === 'manager');
+    const managerRole = roles.find(role => role.type === 'supplier');
     const role = managerRole ? managerRole.id : null;
    
     /** Creates a new user an push to database */
@@ -41,7 +41,7 @@ it('should create a user and give him manager role', async () => {
         expect(data.body.email).toBe(user.email);
 
         expect(data.body.role).toBeDefined();
-        expect(data.body.role.name).toBe('manager');
-        expect(data.body.role.type).toBe('manager');
+        expect(data.body.role.name).toBe('supplier');
+        expect(data.body.role.type).toBe('supplier');
     });    
 });

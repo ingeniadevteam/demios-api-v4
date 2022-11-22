@@ -23,5 +23,12 @@ Since Strapi version 4.2.2 the route api/users/me no longer returns the role fie
 So now to get the user’s role you need to populate the role field, thus the call will be api/users/me?populate=role.
 Note that you also need to give the role permissions to find role too. [Source](https://forum.strapi.io/t/is-it-possible-to-know-user-role-on-authentication/14221/5)
 
+### Controller customization
+
+```
+yarn strapi generate
+```
+
+
 ## ⚙️ Deployment
 

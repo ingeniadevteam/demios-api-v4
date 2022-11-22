@@ -1,6 +1,8 @@
 'use strict';
 
+const v3_v4_migration = require('./migrations/v3_v4');
 const confRoles = require(`./roles.js`);
+const passwordlessLinkTemplate = require('./templates/passwordless-link');
 
 module.exports = {
     /**
@@ -33,6 +35,31 @@ module.exports = {
         //     console.log(error);
         // }
 
+        // setup plugin::passwordless.passwordless
+        try {
+            const passwordlessSettings = {
+                enabled: true,
+                createUserIfNotExists: false,
+                expire_period: 3600,
+                confirmationUrl: process.env.UI_URL,
+                from_name: 'Demios',
+                from_email: 'info@email.demios.es',
+                response_email: '',
+                token_length: 20,
+                object: 'Enlace de acceso a Demios',
+                message_html: passwordlessLinkTemplate.message_html,
+                message_text: passwordlessLinkTemplate.message_text
+            };
+            const pluginStore = strapi.store({
+                environment: '',
+                type: 'plugin',
+                name: 'passwordless',
+            });
+            await pluginStore.set({key: 'settings', value: passwordlessSettings});
+            strapi.log.info('Passwordless settings set');
+        } catch (error) {
+            console.log(error);
+        }
 
         // setup roles
         const appRoles = await strapi.service('plugin::users-permissions.role').find();
@@ -48,6 +75,13 @@ module.exports = {
                 strapi.log.debug(`bootstrap: updating role ${appRole.id} '${confRole.name}' role`);
                 await updateRole(appRole.id, confRole);
             }
+        }
+
+        // run migrations
+        try {
+            await v3_v4_migration();
+        } catch (error) {
+            console.log(error);
         }
     },
 };

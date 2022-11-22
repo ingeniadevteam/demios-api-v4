@@ -14,6 +14,13 @@ it("strapi is defined", () => {
 });
 
 
-require('./user');
+// require('./public');
+require('./public/signup');
+
+// require('./user');
+
 // require('./manager');
 // require('./manager/organizations');
+
+// require('./supplier');
+// require('./supplier/organizations');

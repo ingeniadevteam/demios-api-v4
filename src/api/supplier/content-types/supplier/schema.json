@@ -1,0 +1,86 @@
+{
+  "kind": "collectionType",
+  "collectionName": "suppliers",
+  "info": {
+    "singularName": "supplier",
+    "pluralName": "suppliers",
+    "displayName": "Supplier",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "email": {
+      "type": "email",
+      "required": true,
+      "unique": false
+    },
+    "business": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "taxid": {
+      "type": "string"
+    },
+    "paymentMethod": {
+      "type": "enumeration",
+      "enum": [
+        "confirming",
+        "transfer",
+        "note",
+        "bill",
+        "order",
+        "other"
+      ]
+    },
+    "days": {
+      "type": "enumeration",
+      "enum": [
+        "D0",
+        "D15",
+        "D30",
+        "D45",
+        "D60",
+        "D90",
+        "D120",
+        "D150",
+        "D180"
+      ]
+    },
+    "terms": {
+      "type": "boolean"
+    },
+    "bic": {
+      "type": "string",
+      "required": true
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "creditor",
+        "supplier"
+      ]
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "pending",
+        "accepted",
+        "rejected"
+      ],
+      "default": "pending"
+    },
+    "approvedBy": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
+    }
+  }
+}
