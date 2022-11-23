@@ -3,6 +3,7 @@
 const v3_v4_migration = require('./migrations/v3_v4');
 const confRoles = require(`./roles.js`);
 const passwordlessLinkTemplate = require('./templates/passwordless-link');
+const userWelcome = require('./templates/user-welcome');
 
 module.exports = {
     /**
@@ -21,19 +22,25 @@ module.exports = {
     * run jobs, or perform some special logic.
     */
     async bootstrap({ strapi }) {
+        // create the User afterCreate hook
+        strapi.db.lifecycles.subscribe({
+            models: ['plugin::users-permissions.user'],
+            async afterCreate(event) {
+                const { result, params } = event;
+                const template = userWelcome(result);
 
-        // console.log(process.env.NODE_ENV);
-
-        // try {
-        //     strapi.plugins['email'].services.email.send({
-        //         to: 'test@strapi.com',
-        //         subject: 'The Strapi Email plugin worked successfully',
-        //         text: 'Hello world!',
-        //         html: 'Hello world!',
-        //     });
-        // } catch (error) {
-        //     console.log(error);
-        // }
+                try {
+                    await strapi.plugins['email'].services.email.send({
+                        to: result.email,
+                        subject: template.subject,
+                        text: template.message_text,
+                        html: template.message_html,
+                    });
+                } catch (error) {
+                    strapi.log.error(`supplierBeforeUpdate: ${error.message}`);
+                }
+            },
+        })
 
         // setup plugin::passwordless.passwordless
         try {

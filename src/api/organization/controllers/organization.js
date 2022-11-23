@@ -13,7 +13,11 @@ module.exports = createCoreController('api::organization.organization', ({ strap
         
         if (!user || user.role.type !== 'manager') {
             query.populate = '',
-            query.fields = [ 'name', 'office' ];
+            query.fields = [
+                'name',
+                'office',
+                'supplierValidators'
+            ];
         }
 
         // Calling the default core action
@@ -27,7 +31,11 @@ module.exports = createCoreController('api::organization.organization', ({ strap
 
         if (user.role.type !== 'manager') {
             query.populate = '',
-            query.fields = [ 'name', 'office' ];
+            query.fields = [
+                'name',
+                'office',
+                'supplierValidators'
+            ];
         }
         
         const entity = await strapi.service('api::organization.organization').findOne(id, query);

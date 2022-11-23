@@ -22,6 +22,16 @@
     },
     "office": {
       "type": "string"
+    },
+    "invoiceValidators": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "plugin::users-permissions.user"
+    },
+    "supplierValidators": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "plugin::users-permissions.user"
     }
   }
 }

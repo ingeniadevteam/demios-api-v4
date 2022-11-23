@@ -459,7 +459,7 @@ module.exports = [
                             "policy":""
                         },
                         "findOne":{
-                            "enabled":false,
+                            "enabled":true,
                             "policy":""
                         },
                         "create":{
@@ -467,7 +467,7 @@ module.exports = [
                             "policy":""
                         },
                         "update":{
-                            "enabled":false,
+                            "enabled":true,
                             "policy":""
                         },
                         "delete":{
@@ -481,23 +481,23 @@ module.exports = [
                 "controllers":{
                     "supplier":{
                         "find":{
-                            "enabled":false,
+                            "enabled":true,
                             "policy":""
                         },
                         "findOne":{
-                            "enabled":false,
+                            "enabled":true,
                             "policy":""
                         },
                         "create":{
-                            "enabled":false,
+                            "enabled":true,
                             "policy":""
                         },
                         "update":{
-                            "enabled":false,
+                            "enabled":true,
                             "policy":""
                         },
                         "delete":{
-                            "enabled":false,
+                            "enabled":true,
                             "policy":""
                         }
                     }
@@ -607,23 +607,23 @@ module.exports = [
                     },
                     "user":{
                         "create":{
-                            "enabled":false,
+                            "enabled":true,
                             "policy":""
                         },
                         "update":{
-                            "enabled":false,
+                            "enabled":true,
                             "policy":""
                         },
                         "find":{
-                            "enabled":false,
+                            "enabled":true,
                             "policy":""
                         },
                         "findOne":{
-                            "enabled":false,
+                            "enabled":true,
                             "policy":""
                         },
                         "count":{
-                            "enabled":false,
+                            "enabled":true,
                             "policy":""
                         },
                         "destroy":{
@@ -704,11 +704,11 @@ module.exports = [
                 "controllers":{
                     "supplier":{
                         "find":{
-                            "enabled":false,
+                            "enabled":true,
                             "policy":""
                         },
                         "findOne":{
-                            "enabled":false,
+                            "enabled":true,
                             "policy":""
                         },
                         "create":{
@@ -716,7 +716,7 @@ module.exports = [
                             "policy":""
                         },
                         "update":{
-                            "enabled":false,
+                            "enabled":true,
                             "policy":""
                         },
                         "delete":{
@@ -931,7 +931,7 @@ module.exports = [
                             "policy":""
                         },
                         "findOne":{
-                            "enabled":false,
+                            "enabled":true,
                             "policy":""
                         },
                         "create":{
@@ -939,7 +939,7 @@ module.exports = [
                             "policy":""
                         },
                         "update":{
-                            "enabled":false,
+                            "enabled":true,
                             "policy":""
                         },
                         "delete":{

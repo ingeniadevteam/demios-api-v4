@@ -8,7 +8,8 @@
     "description": ""
   },
   "options": {
-    "draftAndPublish": false
+    "draftAndPublish": false,
+    "populateCreatorFields": true
   },
   "pluginOptions": {},
   "attributes": {
@@ -81,6 +82,12 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "plugin::users-permissions.user"
+    },
+    "users": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "plugin::users-permissions.user",
+      "mappedBy": "supplier"
     }
   }
 }

@@ -14,8 +14,8 @@ const mockUserData = {
 it('should create a user and give him supplier role', async () => {
     /** Gets the default user role */
     const roles = await strapi.service('plugin::users-permissions.role').find({}, []);
-    const managerRole = roles.find(role => role.type === 'supplier');
-    const role = managerRole ? managerRole.id : null;
+    const supplierRole = roles.find(role => role.type === 'supplier');
+    const role = supplierRole ? supplierRole.id : null;
    
     /** Creates a new user an push to database */
     const user = await strapi.plugins['users-permissions'].services.user.add({
