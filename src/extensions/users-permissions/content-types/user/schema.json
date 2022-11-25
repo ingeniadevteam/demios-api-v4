@@ -80,6 +80,11 @@
       "relation": "manyToOne",
       "target": "api::supplier.supplier",
       "inversedBy": "users"
+    },
+    "organization": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::organization.organization"
     }
   }
 }

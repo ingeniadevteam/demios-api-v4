@@ -56,7 +56,7 @@ module.exports = async () => {
             password: Math.random().toString(36).slice(-8),
             confirmed: true,
             blocked: null,
-            supplierValidator: true,
+            supplierValidator: false,
             role
         });
 
@@ -70,9 +70,9 @@ module.exports = async () => {
                 supplierValidators: [supplierValidator.id]
             }});
             org2 = await strapi.service('api::organization.organization').create({ data: {
-                name: 'Empresa de prueba 1',
+                name: 'Empresa de prueba 2',
                 office: 'Madrid',
-                email: 'info@empresaprueba1.com',
+                email: 'info@empresaprueba2.com',
                 supplierValidators: [supplierValidator.id]
             }});
         }

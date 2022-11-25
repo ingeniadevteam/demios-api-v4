@@ -51,7 +51,6 @@ module.exports = {
             } catch (error) {
                 strapi.log.error(`supplierBeforeUpdate: ${error.message}`);
             }
-            return;
         }
     },
 
