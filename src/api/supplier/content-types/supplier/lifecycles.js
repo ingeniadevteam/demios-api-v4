@@ -53,28 +53,4 @@ module.exports = {
             }
         }
     },
-
-    async beforeUpdate(event) {
-        const { model, params } = event;
-
-        if (params.data.status === 'accepted') {
-            const supplier = await strapi.service('api::supplier.supplier').findOne(params.where.id);
-            const roles = await strapi.service('plugin::users-permissions.role').find({}, []);
-            const supplierRole = roles.find(role => role.type === 'supplier');
-            const role = supplierRole ? supplierRole.id : null;
-
-            const user = await strapi.plugins['users-permissions'].services.user.add({
-                name: supplier.name,
-                username: supplier.email,
-                email: supplier.email,
-                provider: "local",
-                password: Math.random().toString(36).slice(-8),
-                confirmed: true,
-                blocked: false,
-                role,
-                isSupplier: true,
-                supplier: [supplier.id]
-            });
-        }
-    }
 };

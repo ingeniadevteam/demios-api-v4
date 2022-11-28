@@ -11,6 +11,23 @@ module.exports = async () => {
     // setup users
     const userCount = await strapi.service('plugin::users-permissions.user').count({});
     if (!userCount) {
+        // setup test organizations
+        const organizationsCount = await strapi.service('api::organization.organization').findOne({});
+        if (!organizationsCount) {
+            org1 = await strapi.service('api::organization.organization').create({ data: {
+                name: 'Empresa de prueba 1',
+                office: 'Madrid',
+                email: 'info@empresaprueba1.com',
+                // supplierValidators: [supplierValidator.id]
+            }});
+            org2 = await strapi.service('api::organization.organization').create({ data: {
+                name: 'Empresa de prueba 2',
+                office: 'Madrid',
+                email: 'info@empresaprueba2.com',
+                // supplierValidators: [supplierValidator.id]
+            }});
+        }
+
         // setup admin user
         const managerRoles = await strapi.service('plugin::users-permissions.role').find({
             name: 'Manager'
@@ -26,6 +43,7 @@ module.exports = async () => {
             password: Math.random().toString(36).slice(-8),
             confirmed: true,
             blocked: null,
+            organization: org1.id,
             role
         });
 
@@ -44,6 +62,7 @@ module.exports = async () => {
             password: Math.random().toString(36).slice(-8),
             confirmed: true,
             blocked: null,
+            organization: org1.id,
             supplierValidator: true,
             role
         });
@@ -56,26 +75,10 @@ module.exports = async () => {
             password: Math.random().toString(36).slice(-8),
             confirmed: true,
             blocked: null,
+            organization: org1.id,
             supplierValidator: false,
             role
         });
-
-        // setup test organizations
-        const organizationsCount = await strapi.service('api::organization.organization').findOne({});
-        if (!organizationsCount) {
-            org1 = await strapi.service('api::organization.organization').create({ data: {
-                name: 'Empresa de prueba 1',
-                office: 'Madrid',
-                email: 'info@empresaprueba1.com',
-                supplierValidators: [supplierValidator.id]
-            }});
-            org2 = await strapi.service('api::organization.organization').create({ data: {
-                name: 'Empresa de prueba 2',
-                office: 'Madrid',
-                email: 'info@empresaprueba2.com',
-                supplierValidators: [supplierValidator.id]
-            }});
-        }
     
         // setup suppliers
         const suppliersCount = await strapi.service('api::supplier.supplier').findOne({});
@@ -83,6 +86,7 @@ module.exports = async () => {
             supplier1 = await strapi.service('api::supplier.supplier').create({ data: {
                 name: "Proveedor de prueba 1",
                 email: "supplier1@strapi.com",
+                phone: '987654321',
                 business: 'Empresa proveedora 1',
                 taxid: "A123456789",
                 type: 'supplier',
@@ -90,10 +94,12 @@ module.exports = async () => {
                 bic: 'ES0000000000000001',
                 terms: true,
                 status: 'pending',
+                approvedBy: supplierValidator.id
             }});
             supplier2 = await strapi.service('api::supplier.supplier').create({ data: {
                 name: "Proveedor de prueba 2",
                 email: "supplier2@strapi.com",
+                phone: '987654321',
                 business: 'Empresa proveedora 2',
                 taxid: "A987654321",
                 type: 'supplier',
@@ -101,6 +107,7 @@ module.exports = async () => {
                 bic: 'ES0000000000000002',
                 terms: true,
                 status: 'pending',
+                approvedBy: supplierValidator.id
             }});
         }
     }
