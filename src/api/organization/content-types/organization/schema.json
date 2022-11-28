@@ -32,6 +32,12 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "plugin::users-permissions.user"
+    },
+    "nameNumber": {
+      "type": "integer"
+    },
+    "officeNumber": {
+      "type": "integer"
     }
   }
 }

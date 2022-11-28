@@ -85,6 +85,56 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::organization.organization"
+    },
+    "invoiceValidator": {
+      "type": "boolean",
+      "default": false
+    },
+    "invoicePayer": {
+      "type": "boolean",
+      "default": false
+    },
+    "ticketValidatorUserId": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
+    },
+    "ticketValidator": {
+      "type": "boolean",
+      "default": false
+    },
+    "ticketPayer": {
+      "type": "boolean",
+      "default": false
+    },
+    "ticketRegistrar": {
+      "type": "boolean",
+      "default": false
+    },
+    "ticketAdmin": {
+      "type": "boolean",
+      "default": false
+    },
+    "orderValidator": {
+      "type": "boolean",
+      "default": false
+    },
+    "purchaseManager": {
+      "type": "boolean",
+      "default": false
+    },
+    "purchaseAdmin": {
+      "type": "boolean",
+      "default": false,
+      "required": false
+    },
+    "purchaseAdmonObra": {
+      "type": "boolean",
+      "default": false
+    },
+    "foreman": {
+      "type": "boolean",
+      "default": false
     }
   }
 }

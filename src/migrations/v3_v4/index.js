@@ -1,5 +1,6 @@
 'use strict';
 
+const MongoClient = require('mongodb').MongoClient;
 
 module.exports = async () => {
     let manager,
@@ -18,13 +19,17 @@ module.exports = async () => {
                 name: 'Empresa de prueba 1',
                 office: 'Madrid',
                 email: 'info@empresaprueba1.com',
-                // supplierValidators: [supplierValidator.id]
+                // supplierValidators: [supplierValidator.id],
+                nameNumber: 1,
+                officeNumber: 0,
             }});
             org2 = await strapi.service('api::organization.organization').create({ data: {
                 name: 'Empresa de prueba 2',
                 office: 'Madrid',
                 email: 'info@empresaprueba2.com',
-                // supplierValidators: [supplierValidator.id]
+                // supplierValidators: [supplierValidator.id],
+                nameNumber: 2,
+                officeNumber: 0,
             }});
         }
 
@@ -63,8 +68,18 @@ module.exports = async () => {
             confirmed: true,
             blocked: null,
             organization: org1.id,
+            role,
             supplierValidator: true,
-            role
+            invoiceValidator: false,
+            invoicePayer:  false,
+            ticketValidator: false,
+            ticketPayer: false,
+            ticketRegistrar: false,
+            ticketAdmin: false,
+            purchaseManager: false,
+            purchaseAdmin: false,
+            purchaseAdmonObra: false,
+            foreman: false,
         });
 
         employee1 = await strapi.plugins['users-permissions'].services.user.add({
@@ -75,9 +90,19 @@ module.exports = async () => {
             password: Math.random().toString(36).slice(-8),
             confirmed: true,
             blocked: null,
+            role,
             organization: org1.id,
             supplierValidator: false,
-            role
+            invoiceValidator: false,
+            invoicePayer:  false,
+            ticketValidator: false,
+            ticketPayer: false,
+            ticketRegistrar: false,
+            ticketAdmin: false,
+            purchaseManager: false,
+            purchaseAdmin: false,
+            purchaseAdmonObra: false,
+            foreman: false,
         });
     
         // setup suppliers

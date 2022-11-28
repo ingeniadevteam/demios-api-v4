@@ -22,6 +22,7 @@
     "@strapi/provider-email-mailgun": "^4.5.2",
     "@strapi/strapi": "4.5.2",
     "better-sqlite3": "7.4.6",
+    "mongodb": "^4.12.1",
     "strapi-plugin-passwordless": "^4.0.8",
     "strapi-provider-email-console": "file:./providers/strapi-provider-email-console"
   },
