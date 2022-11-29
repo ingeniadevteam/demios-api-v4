@@ -22,6 +22,21 @@ module.exports = async () => {
                 // supplierValidators: [supplierValidator.id],
                 nameNumber: 1,
                 officeNumber: 0,
+                supplierValidators: [],
+                // invoiceValidators: [...ids]
+                invoicePayer: 123,
+                orderValidator: 123,
+                purchaseLessThan: 2000,
+                purchaseMoreThan: 10000,
+                // purchaseManager: id, 
+                // orgManager: id,
+                // orgAdmonsObra: [...ids],
+                enableValidatorList: false,
+                // validators: [...ids],
+                // ticketPayerCompanyInvoice: id,
+                // ticketPayerOther: id,
+                // ticketRegistrarCompanyInvoice: id,
+                // ticketRegistrarOther: id,
             }});
             org2 = await strapi.service('api::organization.organization').create({ data: {
                 name: 'Empresa de prueba 2',
@@ -30,6 +45,21 @@ module.exports = async () => {
                 // supplierValidators: [supplierValidator.id],
                 nameNumber: 2,
                 officeNumber: 0,
+                supplierValidators: [],
+                // invoiceValidators: [...ids]
+                invoicePayer: 123,
+                orderValidator: 123,
+                purchaseLessThan: 2000,
+                purchaseMoreThan: 10000,
+                // purchaseManager: id, 
+                // orgManager: id,
+                // orgAdmonsObra: [...ids],
+                enableValidatorList: false,
+                // validators: [...ids],
+                // ticketPayerCompanyInvoice: id,
+                // ticketPayerOther: id,
+                // ticketRegistrarCompanyInvoice: id,
+                // ticketRegistrarOther: id,
             }});
         }
 
@@ -49,7 +79,19 @@ module.exports = async () => {
             confirmed: true,
             blocked: null,
             organization: org1.id,
-            role
+            role,
+            supplierValidator: true,
+            invoiceValidator: true,
+            invoicePayer:  true,
+            ticketValidator: true,
+            ticketPayer: true,
+            ticketRegistrar: true,
+            ticketAdmin: true,
+            orgManager: true,
+            purchaseManager: true,
+            purchaseAdmonObra: true,
+            foreman: true,
+            issueManager: true,
         });
 
         // setup employee users
@@ -76,10 +118,11 @@ module.exports = async () => {
             ticketPayer: false,
             ticketRegistrar: false,
             ticketAdmin: false,
+            orgManager: false,
             purchaseManager: false,
-            purchaseAdmin: false,
             purchaseAdmonObra: false,
             foreman: false,
+            issueManager: false,
         });
 
         employee1 = await strapi.plugins['users-permissions'].services.user.add({
@@ -99,10 +142,11 @@ module.exports = async () => {
             ticketPayer: false,
             ticketRegistrar: false,
             ticketAdmin: false,
+            orgManager: false,
             purchaseManager: false,
-            purchaseAdmin: false,
             purchaseAdmonObra: false,
             foreman: false,
+            issueManager: false,
         });
     
         // setup suppliers

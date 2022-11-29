@@ -123,16 +123,19 @@
       "type": "boolean",
       "default": false
     },
-    "purchaseAdmin": {
-      "type": "boolean",
-      "default": false,
-      "required": false
-    },
     "purchaseAdmonObra": {
       "type": "boolean",
       "default": false
     },
     "foreman": {
+      "type": "boolean",
+      "default": false
+    },
+    "orgManager": {
+      "type": "boolean",
+      "default": false
+    },
+    "issueManager": {
       "type": "boolean",
       "default": false
     }
