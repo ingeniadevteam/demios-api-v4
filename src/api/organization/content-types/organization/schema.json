@@ -23,11 +23,6 @@
     "office": {
       "type": "string"
     },
-    "invoiceValidators": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "plugin::users-permissions.user"
-    },
     "supplierValidators": {
       "type": "relation",
       "relation": "oneToMany",
@@ -92,6 +87,11 @@
       "target": "plugin::users-permissions.user"
     },
     "ticketRegistrarCompanyInvoice": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
+    },
+    "ticketRegistrarOther": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "plugin::users-permissions.user"

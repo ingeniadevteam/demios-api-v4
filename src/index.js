@@ -1,6 +1,6 @@
 'use strict';
 
-const v3_v4_migration = require('./migrations/v3_v4');
+const migration = require('./migrations');
 const confRoles = require(`./roles.js`);
 const passwordlessLinkTemplate = require('./templates/passwordless-link');
 const userWelcome = require('./templates/user-welcome');
@@ -86,7 +86,7 @@ module.exports = {
 
         // run migrations
         try {
-            await v3_v4_migration();
+            await migration();
         } catch (error) {
             console.log(error);
         }

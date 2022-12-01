@@ -8,6 +8,7 @@
     "start": "strapi start",
     "build": "strapi build",
     "strapi": "strapi",
+    "checks": "node checks",
     "test": "NODE_ENV=development jest --forceExit --detectOpenHandles"
   },
   "devDependencies": {

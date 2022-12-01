@@ -119,7 +119,7 @@
       "type": "boolean",
       "default": false
     },
-    "purchaseManager": {
+    "orgAdmon": {
       "type": "boolean",
       "default": false
     },

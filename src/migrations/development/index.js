@@ -1,7 +1,5 @@
 'use strict';
 
-const MongoClient = require('mongodb').MongoClient;
-
 module.exports = async () => {
     let manager,
         supplierValidator,
@@ -22,13 +20,12 @@ module.exports = async () => {
                 // supplierValidators: [supplierValidator.id],
                 nameNumber: 1,
                 officeNumber: 0,
-                supplierValidators: [],
                 // invoiceValidators: [...ids]
                 invoicePayer: 123,
                 orderValidator: 123,
                 purchaseLessThan: 2000,
                 purchaseMoreThan: 10000,
-                // purchaseManager: id, 
+                // orgAdmon: id, 
                 // orgManager: id,
                 // orgAdmonsObra: [...ids],
                 enableValidatorList: false,
@@ -45,13 +42,12 @@ module.exports = async () => {
                 // supplierValidators: [supplierValidator.id],
                 nameNumber: 2,
                 officeNumber: 0,
-                supplierValidators: [],
                 // invoiceValidators: [...ids]
                 invoicePayer: 123,
                 orderValidator: 123,
                 purchaseLessThan: 2000,
                 purchaseMoreThan: 10000,
-                // purchaseManager: id, 
+                // orgAdmon: id, 
                 // orgManager: id,
                 // orgAdmonsObra: [...ids],
                 enableValidatorList: false,
@@ -88,7 +84,7 @@ module.exports = async () => {
             ticketRegistrar: true,
             ticketAdmin: true,
             orgManager: true,
-            purchaseManager: true,
+            orgAdmon: true,
             purchaseAdmonObra: true,
             foreman: true,
             issueManager: true,
@@ -119,7 +115,7 @@ module.exports = async () => {
             ticketRegistrar: false,
             ticketAdmin: false,
             orgManager: false,
-            purchaseManager: false,
+            orgAdmon: false,
             purchaseAdmonObra: false,
             foreman: false,
             issueManager: false,
@@ -143,7 +139,7 @@ module.exports = async () => {
             ticketRegistrar: false,
             ticketAdmin: false,
             orgManager: false,
-            purchaseManager: false,
+            orgAdmon: false,
             purchaseAdmonObra: false,
             foreman: false,
             issueManager: false,
